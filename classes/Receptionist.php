@@ -23,3 +23,22 @@ class Receptionist extends Dipendente {
         '<br>' . 'Esperienza: ' . $this->esperienza;
     }
 }
+
+//Creo array Receptionists
+$receptionists = [
+    ['Pierpaolo', 'Gennargentu', 50, 'M', 'A tempo indeterminato', 1600, 'Arabo', 'Giorno', 'Senior'],
+    ['Francesca', 'Paoletti', 24, 'F', 'A tempo determinato', 1200, 'Inglese', 'Giorno', 'Junior'],
+    ['Chiara', 'Belotti', 21, 'F', 'A tempo indeterminato', 1600, 'Inglese', 'Pomeriggio', 'Senior'],
+    ['Daniela', 'Costa', 23, 'F', 'A tempo determinato', 1200, 'Francese', 'Pomeriggio', 'Junior'],
+    ['Maurizio', 'Rinaldi', 30, 'M', 'A tempo indeterminato', 1800, 'Francese', 'Notte', 'Senior'],
+    ['Uvuvwevwevwe Onyetenyevwe Ugwemubwem', 'Ossas', 32, 'M', 'A tempo determinato', 1400, 'Arabo', 'Notte', 'Junior']
+];
+
+//Creo nuovo array per pushare istanze tramite ciclo
+$lista_receptionists = [];
+
+foreach($receptionists as $receptionist) {
+    $lista_receptionists[] = new Receptionist(...$receptionist);
+}
+
+var_dump($lista_receptionists);

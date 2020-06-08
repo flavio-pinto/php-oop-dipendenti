@@ -22,12 +22,17 @@ include_once __DIR__ . '/classes/Cameriera-ai-piani.php';
     <div class="container-liste">
         <ul class="lista-receptionists">
             <h2>Lista Receptionists</h2>
+            
             <?php $counter_receptionist = 0; ?>
             <?php foreach ($lista_receptionists as $receptionist) { ?>
+                <?php try { ?>
                 <li>
                     <h3>Receptionist n° <?php echo $counter_receptionist = $counter_receptionist + 1; ?></h3>
                     <?php echo $receptionist->print(); ?>
                 </li>
+                <?php } catch(Exception $e) {
+                    echo '<span class="error">Errore: ' . $e->getMessage() . '</span>';
+                } ?>
             <?php } ?>
         </ul>
 
@@ -35,10 +40,14 @@ include_once __DIR__ . '/classes/Cameriera-ai-piani.php';
             <h2>Lista Cameriere ai piani</h2>
             <?php $counter_cameriere = 0; ?>
             <?php foreach ($lista_cameriere as $cameriera) { ?>
+                <?php try { ?>
                 <li>
                     <h3>Cameriera n° <?php echo $counter_cameriere = $counter_cameriere + 1; ?></h3>
                     <?php echo $cameriera->print(); ?>
                 </li>
+                <?php } catch(Exception $e) {
+                    echo '<span class="error">Errore: ' . $e->getMessage() . '</span>';
+                } ?>
             <?php } ?>
         </ul>
     </div>

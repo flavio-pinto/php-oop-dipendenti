@@ -19,17 +19,21 @@ class Dipendente {
         $this->eta = $_eta;
         $this->sesso = $_sesso;
         $this->contratto = $_contratto;
-        $this->stipendio = '€' . number_format($_stipendio, 2);
+        $this->stipendio = $_stipendio;
     }
 
     //Metodi
     public function print() {
-        return  'Nome: ' . $this->nome . '<br>' . 
-                'Cognome: ' . $this->cognome . '<br>' . 
-                'Età: ' . $this->eta . '<br>' . 
-                'Sesso: ' . $this->sesso . '<br>' . 
-                'Contratto: ' . '€' . $this->contratto . '<br>' . 
-                'Stipendio: ' . $this->stipendio;
+        if (!is_string($this->nome) || !is_string($this->cognome) || !is_int($this->eta) || !is_string($this->sesso) || !is_string($this->contratto) || !is_int($this->stipendio)) {
+            throw new Exception('È stato inserito un dato in formato non corretto!');
+        } else {
+            return  'Nome: ' . $this->nome . '<br>' . 
+            'Cognome: ' . $this->cognome . '<br>' . 
+            'Età: ' . $this->eta . '<br>' . 
+            'Sesso: ' . $this->sesso . '<br>' . 
+            'Contratto: ' . '€' . $this->contratto . '<br>' . 
+            'Stipendio: €:' . number_format($this->stipendio, 2);
+        }
     }
 }
 

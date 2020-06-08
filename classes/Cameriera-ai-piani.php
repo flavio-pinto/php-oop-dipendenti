@@ -15,9 +15,13 @@ class CamerieraAiPiani extends Dipendente {
 
     //Metodi
     public function print() {
-        return parent::print() . 
-        '<br>' . 'Piano di competenza: ' . $this->piano . 
-        '<br>' . 'Full-time o Part-time: ' . $this->full_o_part_time;
+        if (!is_int($this->piano) || !is_string($this->full_o_part_time)) {
+            throw new Exception('È stato inserito un dato in formato non corretto');
+        } else {
+            return parent::print() . 
+            '<br>' . 'Piano di competenza: ' . $this->piano . 
+            '<br>' . 'Full-time o Part-time: ' . $this->full_o_part_time;
+        };
     }
 }
 

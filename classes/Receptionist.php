@@ -17,10 +17,14 @@ class Receptionist extends Dipendente {
 
     //Metodi
     public function print() {
-        return parent::print() . 
-        '<br>' . 'Lingua straniera parlata: ' . $this->lingua_straniera_parlata . 
-        '<br>' . 'Fascia oraria: ' . $this->fascia_oraria . 
-        '<br>' . 'Esperienza: ' . $this->esperienza;
+        if (!is_string($this->lingua_straniera_parlata) || !is_string($this->fascia_oraria) || !is_string($this->esperienza)) {
+            throw new Exception('È stato inserito un dato in formato non corretto');
+        } else {
+            return parent::print() . 
+            '<br>' . 'Lingua straniera parlata: ' . $this->lingua_straniera_parlata . 
+            '<br>' . 'Fascia oraria: ' . $this->fascia_oraria . 
+            '<br>' . 'Esperienza: ' . $this->esperienza;
+        };
     }
 }
 
@@ -39,4 +43,4 @@ $lista_receptionists = [];
 
 foreach($receptionists as $receptionist) {
     $lista_receptionists[] = new Receptionist(...$receptionist);
-}
+};

@@ -40,5 +40,3 @@ $lista_receptionists = [];
 foreach($receptionists as $receptionist) {
     $lista_receptionists[] = new Receptionist(...$receptionist);
 }
-
-var_dump($lista_receptionists);
